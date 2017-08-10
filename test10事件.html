@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+        width:400px;
+        height:400px;
+        background:#ff0000;
+    }
+        #div2{
+            width:200px;
+            height:300px;
+            background:#00ff00;
+        }
+    </style>
+
+</head>
+<body>
+       <ul id="ul1">
+           <li>111</li>
+           <li>12</li>
+           <li>13</li>
+           <li>14</li>
+           <li>15</li>
+       </ul>
+       <div id="div1">sfdg
+           <div id="div2">dgs</div>
+       </div>
+     <script src="jquery-1.12.4.min.js "></script>
+<script>
+      $(function(){
+         // $("#div1").on("click",function(){
+         //     alert(123);
+        //  }).trigger("click");
+          //$("#div1").off("click");
+          $("#div1").on("mouseenter",function(){
+              console.log("div1 mouseenter");
+          });
+          $("#div2").on("mouseenter",function(e){
+              console.log("div2 mouseenter");
+             // e.stopPropagation();//防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数。
+          });
+         $("#div1").hover(function(){
+             console.log("over");
+         },function(){
+             console.log("out");
+         });
+     $("#div1").on("click",function(e){
+         console.log(this);
+         console.log(e.target);
+        console.log(e.currentTarget ===this);//==数值比较 ===类型比较
+
+     });
+          $("#div2").on("click",function(e){
+              console.log(this);
+              console.log(e.target);
+             // console.log(e.currentTarget ===this);
+              // target 属性可以是注册事件时的元素，或者它的子元素。通常用于比较 event.target 和 this 来确定事件是不是由于冒泡而触发的。
+              //若是则不相等，否则相等。
+              // 经常用于事件冒泡时处理事件委托。
+              console.log(e.target===this);
+          });
+     $("#ul1").on("click","li",function(){
+         console.log(this);
+     });
+
+      });
+</script>
+</body>
+</html>

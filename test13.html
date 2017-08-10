@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <ul id="ul1">
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+         <li>111</li>
+     </ul>
+     <ul id="ul2">
+         <li>111</li>
+         <li>333</li>
+         <li>222</li>
+         <li>888</li>
+         <li>111</li>
+     </ul>
+<div id="div1">
+    <script src="jquery-1.12.4.min.js "></script>
+    <script>
+        $(function(){
+            $("li").on("click",function(){
+                console.log($(this).index());
+            });
+            console.log($("li").get(8));
+            var obj1={
+                name:"yumingxia",
+                age:19
+            };
+            var obj2={
+                school:"东林",
+                sex:"女",
+                age:20
+            };
+            console.log($.extend(obj1,obj2));
+           //$("#div1").load("login.html");
+        });
+    </script>
+</div>
+</body>
+</html>

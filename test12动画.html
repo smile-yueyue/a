@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin:0;
+
+        }
+        #div1{
+            width:200px;
+            height:200px;
+            background:#ff0000;
+            position:relative;
+        }
+    </style>
+</head>
+<body>
+<button id="hide">hide</button>
+<button id="show">show</button>
+<button id="toggle">toggle</button>
+<button id="animate">animate</button>
+<button id="fadein">fadein</button>
+<button id="fadeout">fadeout</button>
+<button id="fadetoggle">fadetoggle</button>
+<button id="slideup">slideup</button>
+<button id="slidedown">slidedown</button>
+<button id="slidetoggle">slidetoggle</button>
+<div id="div1"></div>
+<script src="jquery-1.12.4.min.js "></script>
+<script>
+    $(function(){
+        var $div1=$("#div1");
+        $("#hide").on("click",function(){
+            $div1.hide(5000);
+        });
+        $("#show").on("click",function(){
+            $div1.show(5000);
+        });
+        $("#toggle").on("click",function(){
+            $div1.toggle(5000);
+        });
+        $("#animate").on("click",function(){
+            $div1.animate({
+                left:800,
+               height:600
+            },2000,function(){
+               /* $div1.animate({
+                    height:600
+                },2000)*/
+            });
+        });
+        $("#fadein").on("click",function(){
+            $div1.fadeIn("fast");
+        });
+        $("#fadeout").on("click",function(){
+            $div1.fadeOut("slow");
+        });
+        $("#fadetoggle").on("click",function(){
+            $div1.fadeToggle();
+        });
+        $("#slideup").on("click",function(){
+            $div1.slideUp();
+        });
+        $("#slidedown ").on("click",function(){
+            $div1.slideDown ();
+        });
+        $("#slidetoggle ").on("click",function(){
+            $div1.slideToggle ();
+        });
+
+    });
+</script>
+</body>
+</html>
