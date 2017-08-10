@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body{
+            font:normal 12px/17px Arial;
+        }
+        div{
+            padding:2px;
+        }
+        input,textarea{
+            width:12em;
+            border:1px solid #888;
+        }
+        .focus{
+            border:1px solid #ff0000;
+            background: #fcc;}
+
+    </style>
+
+</head>
+<body>
+<form action="" method="post" id="regform">
+    <fieldset>
+        <legend>个人信息</legend>
+        <div>
+            <label for="username">名称：</label>
+            <input id="username" type="text" value="mingcheng"/>
+        </div>
+        <div>
+            <label for="pass">密码：</label>
+            <input id="pass" type="password" value="mima"/>
+        </div>
+        <div>
+            <label for="msg">详细信息:</label>
+            <textarea id="msg" rows="2" cols="20"></textarea>
+        </div>
+    </fieldset>
+</form>
+<script src="jquery-1.12.4.min.js "></script>
+<script>
+    $(function(){
+        $(":input").on("focus",function(){
+            $(this).addClass ("focus");
+            // $(this).css("background","red");
+            /*  $(this).css({
+             background:"red";
+             });
+             $(this).css("background",function(){
+             return "red";
+             });*/
+            //  this.style.background="red";
+
+            if($(this).val()==this.defaultValue ){//defaultValue属性可以得到文本框的默认值
+                //val获取匹配的元素集合中第一个元素的当前值或设置匹配的元素集合中每个元素的值。
+                this.value="";
+                // $(this).val("");
+            }
+        }).on("blur",function(){
+            $(this).removeClass ("focus").val(this.value==""?this.defaultValue :this.value);
+            //$(this).css("background","transparent");
+            // $(this).val(this.defaultValue);
+            //this.value=this.defaultValue;
+        });
+    });
+</script>
+</body>
+</html>

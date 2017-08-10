@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body{
+            font:normal 12px/17px Arial;
+        }
+        div{
+        padding:2px;
+        }
+        input,textarea{
+            width:12em;
+            border:1px solid #888;
+        }
+        .focus{
+           border:1px solid #ff0000;
+            background: #fcc;}
+
+    </style>
+
+</head>
+<body>
+     <form action="" method="post" id="regform">
+         <fieldset>
+             <legend>个人信息</legend>
+             <div>
+                <label for="username">名称：</label>
+                 <input id="username" type="text"/>
+             </div>
+             <div>
+                 <label for="pass">密码：</label>
+                 <input id="pass" type="password"/>
+             </div>
+             <div>
+                 <label for="msg">详细信息:</label>
+                 <textarea id="msg" rows="2" cols="20"></textarea>
+             </div>
+         </fieldset>
+     </form>
+     <script src="jquery-1.12.4.min.js "></script>
+     <script>
+         $(function(){
+             $(":input").on("click",function(){
+                 $(this).addClass ("focus");
+             }).on("blur",function(){//为 "blur" 事件绑定一个处理函数，或者触发元素上的 "blur" 事件（愚人码头注：此事件不支持冒泡）。
+                 //一个元素失去焦点将触发blur事件。
+                 $(this).removeClass ("focus");
+             });
+         });
+     </script>
+</body>
+</html>

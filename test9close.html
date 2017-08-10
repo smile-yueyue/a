@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <ul >
+         <li >
+             <span>click me!</span>
+         </li>
+         <li>
+             you can also<span>
+             click me
+         </span>
+         </li>
+
+     </ul>
+     <ul id="one" class="level-1">
+         <li class="item-i">I</li>
+         <li id="ii" class="item-ii">II
+             <ul class="level-2">
+                 <li class="item-a">A</li>
+                 <li class="item-b">B
+                     <ul class="level-3">
+                         <li class="item-1">1</li>
+                         <li class="item-2">2</li>
+                         <li class="item-3">3</li>
+                     </ul>
+                 </li>
+                 <li class="item-c">C</li>
+             </ul>
+         </li>
+         <li class="item-iii">III</li>
+     </ul>
+<script src="jquery-1.12.4.min.js "></script>
+<script>
+  $(function(){
+    $(document).on("click",function(e){
+        //  $(e.target).closest("li").css("background","#f00");
+       $(e.target).parents("li").css("background","#f00");
+    });
+/*
+ .closest()	                                                   .parents()
+ 开始于当前元素	                                               开始于父元素
+ 在 DOM 树中向上遍历，直到找到与提供的选择器相匹配的元素	    向上遍历DOM树到文档的根元素，每个祖先元素加入到临时集合，如果提供一个选择器，则会使用该选择器在集合中进行过滤
+ 返回包含零个或一个元素的jQuery对象                          	返回包含零个，一个或多个元素的jQuery对象
+*  $('li.item-a').closest('ul')
+ .css('background-color', 'red');*/
+
+      $('li.item-a').closest('li')
+          .css('background-color', 'red');
+  });
+</script>
+</body>
+</html>
